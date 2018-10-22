@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
   def home
-    if session[:user_id]
-      @user = User.find(session[:user_id])
+    if session[:manager_id]
+      @Manager = Manager.find(session[:manager_id])
     end
   end
 end
