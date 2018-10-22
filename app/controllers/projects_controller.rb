@@ -24,6 +24,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    if session[:manager_id]
+      @project = Project.find(params[:id])
+    else
+      redirect_to '/'
+    end
+  end
+
   def update
 
   end
@@ -31,8 +39,6 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:, :)
+    params.require(:project).permit(:name, :completed)
   end
-
-end
 end

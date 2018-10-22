@@ -7,7 +7,7 @@ class ManagersController < ApplicationController
     @manager = Manager.new
   end
 
-  def create # new users
+  def create # new manager
     @manager = Manager.new(manager_params)
     if @manager.save
       session[:manager_id] = @manager.id
@@ -23,6 +23,10 @@ class ManagersController < ApplicationController
     else
       redirect_to '/'
     end
+  end
+
+  def edit
+    @manager = Manager.find(params[:id])
   end
 
   def update
