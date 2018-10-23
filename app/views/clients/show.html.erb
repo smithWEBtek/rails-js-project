@@ -1,0 +1,11 @@
+<%= link_to 'Log Out', '/logout', method: :delete %>
+
+<h2><%= @client.name %><h2>
+  <h4>Projects:</h4>
+  <ul>
+    <% @client.projects.each do |project| %>
+
+        <li>"Project Name: #{<%= project.name %>}, Project Completed? #{<%= project.completed %>} </li>
+
+          <%end%>
+      </ul>
