@@ -20,6 +20,7 @@ class ManagersController < ApplicationController
   def show
     if session[:manager_id]
       @manager = Manager.find(params[:id])
+      @project = Project.new
     else
       redirect_to '/'
     end
