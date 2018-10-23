@@ -31,7 +31,10 @@ class ManagersController < ApplicationController
   end
 
   def update
-
+      @manager = Manager.find(params[:id])
+      @manager.update(manager_params)
+      @manager.save
+      redirect_to manager_path(@manager)
   end
 
 private

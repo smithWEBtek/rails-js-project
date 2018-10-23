@@ -2,17 +2,16 @@
 
 <h2><%= @manager.name %><h2>
   <h4>Clients:</h4>
-  <ul>
-    <% @manager.clients.each do |client| %>
-
+    <ul>
+      <% @manager.clients.each do |client| %>
         <li><%=link_to client.name, client_path(client) %></li>
           <ul>
             <% client.projects.each do |project| %>
               <li><%= link_to project.name, project_path(project)%></li>
             <% end %>
           </ul>
-          <%end%>
-      </ul>
+      <%end%>
+    </ul>
 
       <%= form_for @project do |p| %>
 
