@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
 
 def create
 
@@ -11,7 +11,7 @@ def create
 
   session[:user_id] = @user.id
 
-  render 'welcome/home'
+  render 'static/home'
 end
 
 private
