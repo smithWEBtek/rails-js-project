@@ -6,8 +6,6 @@ class CreateClients < ActiveRecord::Migration
       t.string :uid
       t.string :email
       t.string :image
-      t.integer :project_id
-      t.integer :manager_id
       t.timestamps null: false
     end
   end
