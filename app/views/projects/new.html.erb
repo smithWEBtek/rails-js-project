@@ -1,15 +1,15 @@
 <%= form_for @project do |p| %>
 
-<%= p.label :name %>
+<%= p.label :name, 'Project Name:' %>
 <%= p.text_field :name %><br>
-<%= p.collection_select :client_id, Client.all, :id, :name %>
-<%= p.collection_select :manager_id, Manager.all, :id, :name %>
+<%= p.collection_select :client_id, Client.all, :id, :name, 'Client Name:' %><br>
+<%= p.collection_select :manager_id, Manager.all, :id, :name %><br>
 <%= p.fields_for @client do |m| %>
-<%= m.text_field :name %><br>
-<%= m.text_field :email%><br>
+<%= m.text_field :name %><br><br>
+<%= m.text_field :email%><br><br>
 <% end %>
 
-<%= p.label :complete 'Is the project complete?' %>
-<%= p.check_box_field :complete %>
-<%= p.submit 'Create Project' %>
+<%= p.label :complete, 'Is the project complete?' %>
+<%= p.check_box :completed %><br>
+<%= p.submit "Create Project" %>
 <% end %>
