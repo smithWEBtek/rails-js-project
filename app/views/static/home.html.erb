@@ -1,6 +1,7 @@
 <h1>Welcome!  </h1>
 
 <% if @manager == nil %>
-<%= link_to 'Manager Sign Up', '/signup', method: :create%><br><br>
+<%= link_to 'Manager Sign Up', new_manager_path %><br><br>
+<%= link_to 'Manager Sign In', '/signin', method: :create%><br><br>
 <% end %>
 <%= link_to 'Client Roster', clients_path %>

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-
+    @manager = Manager.new
   end
 
   def create
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :manager_id 
+    session.delete :manager_id
     redirect_to '/'
   end
 
