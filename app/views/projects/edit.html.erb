@@ -14,8 +14,6 @@
 <%= p.fields_for @client do |m| %>
 <%= m.label :name, 'Client Name:'  %>
 <%= m.text_field :name %><br>
-<%= m.label :email, 'Client Email:'  %>
-<%= m.text_field :email%><br><br>
 <% end %>
 <%= p.submit "Update Project" %>
 <% end %>

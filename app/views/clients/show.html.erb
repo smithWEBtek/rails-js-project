@@ -4,6 +4,6 @@
   <h4>Projects:</h4>
     <ul>
       <% @client.projects.each do |project| %>
-        <li> "Project Name: #{<%= project.name %>}, Project Completed? #{<%= project.completed %>}" </li>
+        <li> <%= link_to project.name, project_path(project) %> </li>
       <% end %>
     </ul>
