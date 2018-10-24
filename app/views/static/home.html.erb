@@ -1,2 +1,5 @@
-<h1>Welcome!</h1>
+<h1>Welcome! <%= @current_user.name %> </h1>
+
+<% if @current_user == nil %>
 <%= link_to 'Sign Up', '/signup', method: :create%>
+<% end %>

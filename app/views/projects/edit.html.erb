@@ -1,11 +1,21 @@
-<h1>Editing <%= @project.name %></h1>
+<h1> Create New Project Below: </h1>
+<%= form_for @project do |p| %>
 
-<%= form_for @project  do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :complete, 'Project Complete?' %>
-  <%= f.boolean :completed %>
-  <br />
+<%= p.label :name, 'Project Name:' %>
+<%= p.text_field :name %><br>
+<%= p.label :client_id, 'Select Client:'  %>
+<%= p.collection_select :client_id, Client.all, :id, :name %><br>
+<%= p.label :manager_id, 'Select Manager:'  %>
+<%= p.collection_select :manager_id, Manager.all, :id, :name %><br>
+<%= p.label :complete, 'Is the project complete?' %>
+<%= p.check_box :completed %><br><br>
 
-  <%= f.submit, 'Update Project' %>
+<h3> If Client does not exist, create one below: </h3>
+<%= p.fields_for @client do |m| %>
+<%= m.label :name, 'Client Name:'  %>
+<%= m.text_field :name %><br>
+<%= m.label :email, 'Client Email:'  %>
+<%= m.text_field :email%><br><br>
+<% end %>
+<%= p.submit "Update Project" %>
 <% end %>
