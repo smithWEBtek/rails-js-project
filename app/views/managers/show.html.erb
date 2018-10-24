@@ -3,6 +3,12 @@
 <%= link_to 'Create Poject', new_project_path %>
 
 <h2>Name:<%= @manager.name %></h2>
+<%binding.pry%>
 <h2>Email:<%= @manager.email %></h2><br>
 
   <h4>Clients:</h4>
+
+    <% @manager.clients.each do |client| %>
+
+    <%= client.name %>
+    <% end %>
