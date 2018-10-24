@@ -1,7 +1,7 @@
 <h1>Edit Client Details Below:</h1>
 <%= form_for @client do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
+
+<%= render 'client' %>
 
 <%= f.submit "Update Client Profile" %>
 <% end %>

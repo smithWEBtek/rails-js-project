@@ -1,7 +1,5 @@
 <h1>Create New Client Below:</h1>
 <%= form_for @client do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-
+<%= render 'client' %>
 <%= f.submit "Create Client Profile" %>
 <% end %>
