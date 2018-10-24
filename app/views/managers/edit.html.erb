@@ -1,12 +1,2 @@
 <h1>Edit Manager Profile Below:</h1>
-<%= form_for @manager do |f| %>
-<%= f.label :name  %>
-<%= f.text_field :name %><br>
-
-<%= f.label :password %>
-<%= f.password_field :password %><br>
-
-<%= f.label :email %>
-<%= f.text_field :email %><br>
-<%= f.submit 'Edit Manager Profile' %>
-<% end %>
+<%= render 'manager' %>
