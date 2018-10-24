@@ -10,20 +10,19 @@ class ProjectsController < ApplicationController
   end
 
   def create # new users
-    @project = Project.new(project_params)
-    if @project.save
-      redirect_to project_path(@project)
+    if session[:manager_id] != nil
+        @project = Project.new(project_params)
+        if @project.save
+          redirect_to project_path(@project)
+        else
+          redirect_to new_project_path
+        end
     else
-      redirect_to new_project_path
-    end
+      redirect_to '/'
   end
 
   def show
-    if session[:manager_id]
       @project = Project.find(params[:id])
-    else
-      redirect_to '/'
-    end
   end
 
   def edit
@@ -35,7 +34,9 @@ class ProjectsController < ApplicationController
   end
 
   def update
-
+    @project = Project.find(params[:id])
+    @project.update(project_params)
+    @project.save
   end
 
 private

@@ -27,14 +27,22 @@ class ManagersController < ApplicationController
   end
 
   def edit
-    @manager = Manager.find(params[:id])
+    if session[:manager_id]
+      @manager = Manager.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   def update
+    if session[:manager_id]
       @manager = Manager.find(params[:id])
       @manager.update(manager_params)
       @manager.save
       redirect_to manager_path(@manager)
+    else
+      redirect_to '/'
+    end
   end
 
 private
