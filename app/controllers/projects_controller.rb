@@ -5,9 +5,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @client = Client.new
+    @project.build_client
   end
 
   def create # new users
+    binding.pry
     @project = Project.new(project_params)
     if @project.save
       redirect_to project_path(@project)

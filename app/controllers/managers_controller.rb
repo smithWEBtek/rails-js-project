@@ -42,7 +42,4 @@ private
   def manager_params
     params.require(:manager).permit(:name, :password)
   end
-
-end
-
 end
