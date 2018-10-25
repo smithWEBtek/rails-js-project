@@ -32,7 +32,7 @@ gem 'bcrypt'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem "omniauth-github", '1.1.1'
 gem 'dotenv-rails'
 gem 'pry'
 gem 'bootstrap-sass', '3.3.7'

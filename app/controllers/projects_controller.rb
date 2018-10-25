@@ -2,11 +2,12 @@ class ProjectsController < ApplicationController
   def new
     if session[:manager_id]
       @project = Project.new
-      @client = Client.new
-      @project.build_client
+      @client = @project.client.build
+
       flash[:message] = "All Attributes must be filled in and the Project name needs to be unique."
     else
-      render :new
+      #render :new
+      redirect_to '/'
     end
   end
 
@@ -48,6 +49,6 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:name, :completed, :manager_id, :client_id)
+    params.require(:project).permit(:name, :completed, :manager_id, :client_id, :client_name)
   end
 end
