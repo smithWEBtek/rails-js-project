@@ -4,9 +4,9 @@ class ProjectsController < ApplicationController
       @project = Project.new
       @client = Client.new
       @project.build_client
-
+      flash[:message] = "All Attributes must be filled in and the Project name needs to be unique."
     else
-      redirect_to '/'
+      render :new
     end
   end
 

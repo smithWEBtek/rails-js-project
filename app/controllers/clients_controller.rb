@@ -13,6 +13,7 @@ class ClientsController < ApplicationController
       if @client.save
         redirect_to client_path(@client)
       else
+          flash[:message] = "Client name needs to be unique and present."
         redirect_to new_client_path
       end
     else

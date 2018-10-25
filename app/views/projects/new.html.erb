@@ -1,2 +1,5 @@
 <h1>Create New Project Below:</h1>
 <%= render 'project' %>
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>

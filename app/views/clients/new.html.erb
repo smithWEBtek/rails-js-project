@@ -1,2 +1,5 @@
 <h1>Create New Client Below:</h1>
 <%= render 'client' %>
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
