@@ -1,2 +1,5 @@
 <h1>Create a new Manager Profile Below:</h1>
 <%= render 'manager' %>
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>

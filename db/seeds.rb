@@ -13,9 +13,9 @@ DATA = {
     ["Quvenzhané Wallis", "QW@email", "password"]
   ],
   :projects => [
-    ["Project1", Yes, 1, 2],
-    ["Project2", No, 3, 4],
-    ["Project3", Yes, 1, 3],
-    ["Project4", No, 1, 4]
+    ["Project1", true, 1, 2],
+    ["Project2", false, 3, 4],
+    ["Project3", true, 1, 3],
+    ["Project4", false, 1, 4]
   ]
 }

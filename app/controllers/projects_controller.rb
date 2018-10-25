@@ -1,16 +1,17 @@
 class ProjectsController < ApplicationController
-  def index
-
-  end
-
   def new
-    @project = Project.new
-    @client = Client.new
-    @project.build_client
+    if session[:manager_id]
+      @project = Project.new
+      @client = Client.new
+      @project.build_client
+
+    else
+      redirect_to '/'
+    end
   end
 
-  def create # new users
-    if session[:manager_id] != nil
+  def create # new manager
+    if session[:manager_id]
         @project = Project.new(project_params)
         if @project.save
           redirect_to project_path(@project)
@@ -19,6 +20,7 @@ class ProjectsController < ApplicationController
         end
     else
       redirect_to '/'
+    end
   end
 
   def show
@@ -34,9 +36,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
-    @project.update(project_params)
-    @project.save
+    if session[:manager_id]
+      @project = Project.find(params[:id])
+      @project.update(project_params)
+      @project.save
+    else
+      redirect_to '/'
+    end
   end
 
 private

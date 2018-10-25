@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <% if session[:manager_id] != nil %>
   <%= link_to  'Log Out', '/logout', method: :delete %>
-  <%= link_to 'Home', 'root' %>
+  <%= link_to 'Home', '/' %>
   <%end%>
   <%= csrf_meta_tags %>
 </head>

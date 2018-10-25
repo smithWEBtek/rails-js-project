@@ -13,6 +13,7 @@ class ManagersController < ApplicationController
       session[:manager_id] = @manager.id
       redirect_to manager_path(@manager)
     else
+      flash[:message] = "Reminder: Email must be a @studio.com account."
       redirect_to new_manager_path
     end
   end
