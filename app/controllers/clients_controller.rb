@@ -6,10 +6,12 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
     @project = Project.new
-    @client.projects.build
+    @project = @client.projects.build
+
   end
 
   def create # new users
+
     if session[:manager_id]
       @client = Client.new(client_params)
       if @client.save
