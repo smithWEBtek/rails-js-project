@@ -1,8 +1,7 @@
 <h1>Create New Client Below:</h1>
-<%= render 'client' %>
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<%= form_for @client do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
 
 <h3>Project Form</h3>
 <%= form_for @project do |p| %>
@@ -13,4 +12,9 @@
 <%= p.label :complete, 'Is the project complete?' %>
 <%= p.check_box :completed %><br><br>
 <% end %>
-<%= p.submit %>
+<%= f.submit %>
+<% end %>
+
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>

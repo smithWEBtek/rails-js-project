@@ -12,9 +12,7 @@ class ProjectsController < ApplicationController
   def create # new manager
     if session[:manager_id]
         @project = Project.new(project_params)
-
         if @project.save
-
           redirect_to project_path(@project)
         else
           redirect_to new_project_path

@@ -7,11 +7,5 @@
 <%= p.collection_select :manager_id, Manager.all, :id, :name, include_blank: true %><br>
 <%= p.label :complete, 'Is the project complete?' %>
 <%= p.check_box :completed %><br><br>
-
-<h3> If Client does not exist, create one below: </h3>
-<%= p.fields_for :client, @project.build_client do |m| %>
-<%= m.label :name, 'Client Name:'  %>
-<%= m.text_field :name %><br>
-<% end %>
 <%= p.submit %>
 <% end %>
