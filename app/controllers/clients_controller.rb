@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
     @project = Project.new
+    @client.projects.build
   end
 
   def create # new users
@@ -47,6 +48,6 @@ class ClientsController < ApplicationController
 private
 
   def client_params
-    params.require(:client).permit(:name, :email, :project_attributes [:name, :client_id, :manager_id])
+    params.require(:client).permit(:name, project_attributes: [:name, :completed, :client_id, :manager_id])
   end
 end

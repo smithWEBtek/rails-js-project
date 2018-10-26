@@ -6,9 +6,9 @@ class Client < ActiveRecord::Base
 
   #scope
 
-  def projects_attributes=(attributes)
-    binding.pry
-  end
+#  def projects_attributes=(attributes)
+#    binding.pry
+#  end
   def completed_projects
     self.projects.completed.inspect
       binding.pry

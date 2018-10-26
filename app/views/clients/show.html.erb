@@ -1,9 +1,11 @@
 <h1>Client Details Below:</h1>
+    <%binding.pry%>
 <h2><%= @client.name %></h2>
   <h4>Projects:</h4>
     <ul>
       <% @client.projects.each do |project| %>
+
         <li> <%= link_to project.name, project_path(project) %> </li>
       <% end %>
     </ul>
-    <%= link_to 'Create New Project', new_project_path %>
+    <%= link_to 'Create New Project', new_project_path %> #neww to make conditional
