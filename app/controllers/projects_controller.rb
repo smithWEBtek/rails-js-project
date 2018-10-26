@@ -2,8 +2,6 @@ class ProjectsController < ApplicationController
   def new
     if session[:manager_id]
       @project = Project.new
-      @client = @project.client.build
-
       flash[:message] = "All Attributes must be filled in and the Project name needs to be unique."
     else
       #render :new
@@ -14,7 +12,9 @@ class ProjectsController < ApplicationController
   def create # new manager
     if session[:manager_id]
         @project = Project.new(project_params)
+
         if @project.save
+
           redirect_to project_path(@project)
         else
           redirect_to new_project_path
