@@ -1,3 +1,11 @@
 <h1>Sign In</h1>
-<%= render 'managers/manager' %>
-#thing is creating now loging in!!
+<%= form_for(:session, url: '/login') do |f| %>
+<%= f.label :email %>
+<%= f.text_field :email %><br>
+
+<%= f.label :password %>
+<%= f.password_field :password %><br>
+
+
+<%= f.submit 'Log In' %>
+<% end %>

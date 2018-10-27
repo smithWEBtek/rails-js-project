@@ -2,8 +2,9 @@
 <html>
 <head>
   <% if session[:manager_id] %>
-  <%= link_to  'Log Out', logout_path, method: :delete %>
+  <%= link_to "#{current_manager.name}'s Profile ", manager_path(current_manager) %>
   <%= link_to 'Home', '/' %>
+  <%= link_to  'Log Out', logout_path, method: :delete %>
   <%end%>
 </head>
 <body>

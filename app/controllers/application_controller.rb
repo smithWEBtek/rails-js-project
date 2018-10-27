@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def current_manager
     if session[:manager_id]
-      @manager = @manager || Manger.find_by_id(session[:manager_id])
+      @manager = @manager || Manager.find_by_id(session[:manager_id])
     end
   end
 

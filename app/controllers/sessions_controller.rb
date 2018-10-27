@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
     @manager = Manager.find_by(email: params[:session][:email].downcase)
+
      if @manager && @manager.authenticate(params[:session][:password])
         redirect_to manager_path(@manager)
      else
        flash[:danger] = 'Invalid email/password combination'
-       render 'new'
+       render 'sessions/new'
 
   #  @manager = Manager.find_or_create_by(uid: auth['uid']) do |u|
     #  u.name = auth['info']['name']
