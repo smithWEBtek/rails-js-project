@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+   
+
   def new
     if session[:manager_id]
       @project = Project.new

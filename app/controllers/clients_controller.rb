@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+
+
   def index
     @clients = Client.all
   end
@@ -6,15 +8,15 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
     @project = Project.new
-    @project = @client.projects.build
-
   end
 
   def create # new users
-    binding.pry
+
     if session[:manager_id]
       @client = Client.new(client_params)
       if @client.save
+           @client.projects.build(client_id: @client.id)
+      
         redirect_to client_path(@client)
       else
           flash[:message] = "Client name needs to be unique and present."
@@ -50,6 +52,6 @@ class ClientsController < ApplicationController
 private
 
   def client_params
-    params.require(:client).permit(:name, project_attributes: [:name, :completed, :client_id, :manager_id])
+    params.require(:client).permit(:name, :project_attributes => [:name, :completed, :client_id, :manager_id])
   end
 end

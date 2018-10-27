@@ -1,6 +1,11 @@
 <h1>Client Details Below:</h1>
 
 <h2><%= @client.name %></h2>
+<% if session[:manager_id] %>
+<%= link_to 'Create New Project', new_project_path %>
+<%= link_to 'Edit Client', edit_client_path(@client) %>
+<%end%>
+
   <h4>Completed Projects:</h4>
     <ul>
       <% @client.completed_projects.each do |project| %>
@@ -13,5 +18,3 @@
           <li> <%= link_to project.name, project_path(project) %> </li>
         <% end %>
       </ul>
-<%binding.pry%>
-    <%= link_to_if(logged_in?, 'Create New Project', new_project_path) %>
