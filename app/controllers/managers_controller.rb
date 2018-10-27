@@ -1,12 +1,10 @@
 class ManagersController < ApplicationController
-
-
-  def index
-
-  end
-
   def new
-    @manager = Manager.new
+    if session[:manager_id]
+      redirect_to '/'
+    else
+      @manager = Manager.new
+    end
   end
 
   def create # new manager
@@ -23,7 +21,6 @@ class ManagersController < ApplicationController
   def show
     if session[:manager_id]
       @manager = Manager.find(params[:id])
-      @project = Project.new
     else
       redirect_to '/'
     end

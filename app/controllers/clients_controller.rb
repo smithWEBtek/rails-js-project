@@ -9,6 +9,7 @@ class ClientsController < ApplicationController
      if session[:manager_id]
        @client = Client.new
        @project = Project.new
+       @client.projects.build
      else
        redirect_to '/'
      end

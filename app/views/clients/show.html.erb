@@ -8,6 +8,7 @@
 
   <h4>Completed Projects:</h4>
     <ul>
+    
       <% @client.completed_projects.each do |project| %>
         <li> <%= link_to project.name, project_path(project) %> </li>
       <% end %>
