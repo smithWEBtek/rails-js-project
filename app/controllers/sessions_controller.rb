@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    binding.pry
     @manager = Manager.find_by(email: params[:session][:email].downcase)
      if @manager && @manager.authenticate(params[:session][:password])
         redirect_to manager_path(@manager)

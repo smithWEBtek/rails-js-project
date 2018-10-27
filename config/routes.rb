@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'static#home'
 
-  get    '/signin',   to: 'sessions#new'
-  post    '/signin',   to: 'sessions#create'
+  get    '/signup',   to: 'manager#new'
+
+  get    '/login',   to: 'sessions#new'
+  post    '/login',   to: 'sessions#create'
 
   get '/logout',  to: 'sessions#destroy'
 
