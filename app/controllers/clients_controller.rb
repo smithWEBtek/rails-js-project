@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
   end
 
   def create # new users
-
+    binding.pry
     if session[:manager_id]
       @client = Client.new(client_params)
       if @client.save

@@ -10,7 +10,10 @@ class Client < ActiveRecord::Base
 #    binding.pry
 #  end
   def completed_projects
-    self.projects.completed.inspect
-      binding.pry
+    self.projects.where(completed: true)
+  end
+
+  def uncompleted_projects
+    self.projects.where(completed: false)
   end
 end

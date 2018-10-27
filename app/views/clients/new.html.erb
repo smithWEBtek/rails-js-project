@@ -4,15 +4,14 @@
 <%= f.text_field :name %><br>
 
 <h3>Project Form</h3>
-<%= f.fields_for :project, @client.projects.build do |project_fields| %>
+<%= f.fields_for @project do |project_fields| %>
 <%= project_fields.label :name, 'Project Name:' %>
-<%binding.pry%>
 <%= project_fields.text_field :name %><br>
 <%= project_fields.hidden_field :client_id  %>
 <%= project_fields.label :manager_id, 'Select Manager:'  %>
 <%= project_fields.collection_select :manager_id, Manager.all, :id, :name, include_blank: true %><br>
 <%= project_fields.label :complete, 'Is the project complete?' %>
-<%= project_fields.check_box :completed %><br><br>
+<%= project_fields.select :completed, [['True', true], ['False', false]] %><br><br>
 <% end %>
 <%= f.submit %>
 <% end %>

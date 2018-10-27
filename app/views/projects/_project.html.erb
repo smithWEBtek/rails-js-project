@@ -6,6 +6,6 @@
 <%= p.label :manager_id, 'Select Manager:'  %>
 <%= p.collection_select :manager_id, Manager.all, :id, :name, include_blank: true %><br>
 <%= p.label :complete, 'Is the project complete?' %>
-<%= p.check_box :completed %><br><br>
+<%= p.select :completed, [['True', true], ['False', false]]  %><br><br>
 <%= p.submit %>
 <% end %>
