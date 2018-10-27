@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def destroy
     #Manager.find(session[:manager_id]).destroy
     session.delete :manager_id
-    @current_manager = nil
+    #@current_manager = nil
     redirect_to '/'
   end
 
