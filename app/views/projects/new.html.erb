@@ -1,5 +1,7 @@
 <h1>Create New Project Below:</h1>
-<%= render 'project' %>
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+  <%= render 'project' %>
+    <div class="fields_with_errors">
+      <% if flash[:message] %>
+        <%= flash[:message] %>
+      <% end %>
+    </div>

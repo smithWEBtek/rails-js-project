@@ -1,5 +1,5 @@
 class ManagersController < ApplicationController
-  
+
 
   def index
 
@@ -15,7 +15,7 @@ class ManagersController < ApplicationController
       session[:manager_id] = @manager.id
       redirect_to manager_path(@manager)
     else
-      flash[:message] = "Reminder: Email must be a @studio.com account. Please try signing up again."
+      flash[:message] = "Reminder: Email must contain an @ symbol. Please try signing up again."
       redirect_to new_manager_path
     end
   end

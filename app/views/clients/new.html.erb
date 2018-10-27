@@ -16,6 +16,8 @@
 <%= f.submit %>
 <% end %>
 
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<div class="fields_with_errors">
+  <% if flash[:message] %>
+    <%= flash[:message] %>
+  <% end %>
+</div>

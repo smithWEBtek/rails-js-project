@@ -1,12 +1,10 @@
 class ProjectsController < ApplicationController
-   
+
 
   def new
     if session[:manager_id]
       @project = Project.new
-      flash[:message] = "All Attributes must be filled in and the Project name needs to be unique."
     else
-      #render :new
       redirect_to '/'
     end
   end
@@ -17,6 +15,7 @@ class ProjectsController < ApplicationController
         if @project.save
           redirect_to project_path(@project)
         else
+          flash[:message] = "All Attributes must be filled in and the Project name needs to be unique."
           redirect_to new_project_path
         end
     else

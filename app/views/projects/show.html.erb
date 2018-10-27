@@ -1,11 +1,12 @@
 <h1>Project Details:</h1>
 
-Project Name: <%= @project.name %><br>
-Client Name: <%= @project.client.name %><br>
-Manager Name: <%= @project.manager.name %><br>
-Completed? <%= @project.completed %><br><br>
+  Project Name: <%= @project.name %><br>
+  Client Name: <%= @project.client.name %><br>
+  Manager Name: <%= @project.manager.name %><br>
+  Completed? <%= @project.completed %><br><br>
 
-<%= link_to "See your Project List", client_path(@project.client) %>
-<% if session[:manager_id] %>
-<%= link_to 'Edit Project', edit_project_path(@project) %>
-<%end%>
+  <%= link_to "See your Project List", client_path(@project.client) %>
+  
+  <% if session[:manager_id] %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %>
+  <%end%>

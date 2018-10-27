@@ -6,21 +6,23 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
-    @project = Project.new
+     if session[:manager_id]
+       @client = Client.new
+       @project = Project.new
+     else
+       redirect_to '/'
+     end
   end
 
-  def create # new users
-
+  def create
     if session[:manager_id]
       @client = Client.new(client_params)
       if @client.save
-           @client.projects.build(client_id: @client.id)
-
-        redirect_to client_path(@client)
+          @client.projects.build(client_id: @client.id)
+          redirect_to client_path(@client)
       else
           flash[:message] = "Client name needs to be unique and present."
-        redirect_to new_client_path
+          redirect_to new_client_path
       end
     else
       redirect_to '/'
