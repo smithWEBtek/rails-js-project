@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
 
 
     def create
-      if request.env["omniauth.auth"] # log in omniauth
-          @manager = Manager.find_or_create_by(uid: auth['uid']) do |u|
-            u.name = auth['info']['name']
-            u.email = auth['info']['email']
-            u.image = auth['info']['image']
+      if auth_hash = request.env['omniauth.auth'] # log in omniauth
+        binding.pry
+         manager = Manager.find_or_create_by_omniauth(auth_hash)
+         session[:manager_id] = manager.id
+         redirect_to manager_path(manager)
       else
         @manager = Manager.find_by(email: params[:session][:email].downcase) #bcrypt login
           if @manager && @manager.authenticate(params[:session][:password])
@@ -22,12 +22,12 @@ class SessionsController < ApplicationController
       end
     end
 
-      auth = request.env["omniauth.auth"]
-      @manager = Manager.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-      session[:manager_id] = @manager.id
-      redirect_to manager_path(@manager)
-      if @manager.nil?
-    end
+  #    auth = request.env["omniauth.auth"]
+  #    @manager = Manager.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+  #    session[:manager_id] = @manager.id
+  #    redirect_to manager_path(@manager)
+  #    if @manager.nil?
+  #  end
 
   def destroy
     session.delete :manager_id
