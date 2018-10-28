@@ -4,34 +4,33 @@ class SessionsController < ApplicationController
   end
 
 
-  #  def create
-  #    auth = request.env["omniauth.auth"]
-  #    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-  #      session[:user_id] = user.id
-  #      redirect_to root_url, :notice => "Signed in!"
+    def create
+      if request.env["omniauth.auth"] # log in omniauth
+          @manager = Manager.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.image = auth['info']['image']
+      else
+        @manager = Manager.find_by(email: params[:session][:email].downcase) #bcrypt login
+          if @manager && @manager.authenticate(params[:session][:password])
+              session[:manager_id] = @manager.id
+              redirect_to manager_path(@manager)
+          else
+              flash[:danger] = 'Invalid email/password combination'
+              render 'sessions/new'
+          end
+      end
     end
 
-
-  def create
-    @manager = Manager.find_by(email: params[:session][:email].downcase)
-     if @manager && @manager.authenticate(params[:session][:password])
-        session[:manager_id] = @manager.id
-        redirect_to manager_path(@manager)
-     else
-       flash[:danger] = 'Invalid email/password combination'
-       render 'new'
-
-  #  @manager = Manager.find_or_create_by(uid: auth['uid']) do |u|
-    #  u.name = auth['info']['name']
-    #  u.email = auth['info']['email']
-    #  u.image = auth['info']['image']
+      auth = request.env["omniauth.auth"]
+      @manager = Manager.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+      session[:manager_id] = @manager.id
+      redirect_to manager_path(@manager)
+      if @manager.nil?
     end
-  end
 
   def destroy
-    #Manager.find(session[:manager_id]).destroy
     session.delete :manager_id
-    #@current_manager = nil
     redirect_to '/'
   end
 
