@@ -4,9 +4,9 @@ class Client < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   accepts_nested_attributes_for :projects
 
-  def projects_attributes=(attributes)
+  #def projects_attributes=(attributes)
     #raise projects_attributes
-  end
+#  end
 
   def completed_projects
     self.projects.where(completed: true)

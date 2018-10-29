@@ -4,7 +4,7 @@
 <%= f.text_field :name %><br>
 
 <h3>Project Form</h3>
-<%= f.fields_for @project do |project_fields| %>
+<%= f.fields_for :projects do |project_fields| %>
 <%= project_fields.label :name, 'Project Name:' %>
 <%= project_fields.text_field :name %><br>
 <%= project_fields.hidden_field :client_id  %>

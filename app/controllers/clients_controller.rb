@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
   def new
      if session[:manager_id]
        @client = Client.new
-       @project = Project.new
+      # @project = Project.new
        @client.projects.build
      else
        redirect_to '/'
@@ -19,7 +19,6 @@ class ClientsController < ApplicationController
     if session[:manager_id]
       @client = Client.new(client_params)
       if @client.save
-          @client.projects.build(client_id: @client.id)
           redirect_to client_path(@client)
       else
           flash[:message] = "Client name needs to be unique and present."
@@ -56,6 +55,6 @@ class ClientsController < ApplicationController
 private
 
   def client_params
-    params.require(:client).permit(:name, :project_attributes => [:name, :completed, :client_id, :manager_id])
+    params.require(:client).permit(:name, :projects_attributes => [:name, :completed, :client_id, :manager_id])
   end
 end
