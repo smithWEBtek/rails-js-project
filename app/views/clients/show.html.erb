@@ -1,8 +1,10 @@
-<h1>Client Details Below:</h1>
-  <%= link_to 'Back to Roster', clients_path %>
-<h2><%= @client.name %></h2>
+<h1>Client Details Below</h1>
+
+<h2>Client Name: <%= @client.name %></h2>
+
+<h3>Shortcuts:</h3>
+  <%= link_to 'Back to Roster', clients_path %><br>
 <% if session[:manager_id] %>
-<%= link_to 'Create New Project', new_project_path %>
 <%= link_to 'Edit Client', edit_client_path(@client) %>
 <%end%>
 

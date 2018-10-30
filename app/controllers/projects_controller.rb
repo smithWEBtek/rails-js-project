@@ -40,6 +40,7 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
       @project.update(project_params)
       @project.save
+      redirect_to project_path(@project)
     else
       redirect_to '/'
     end
