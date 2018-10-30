@@ -5,8 +5,9 @@
   Manager Name: <%= @project.manager.name %><br>
   Completed? <%= @project.completed %><br><br>
 
-  <%= link_to "See your Project List", client_path(@project.client) %>
-  
+  <%= link_to "See #{@project.client.name}'s Project List", client_path(@project.client) %><br>
+
   <% if session[:manager_id] %>
-  <%= link_to 'Edit Project', edit_project_path(@project) %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %><br>
+  <%= link_to "Your Profile", manager_path(@project.manager) %>
   <%end%>

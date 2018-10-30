@@ -13,7 +13,7 @@ class ManagersController < ApplicationController
       session[:manager_id] = @manager.id
       redirect_to manager_path(@manager)
     else
-      flash[:message] = "Reminder: Email must contain an @ symbol. Please try signing up again."
+      flash[:message] = "Reminder: Name and Email must be unique. Email must contain an @ symbol. Please try signing up again."
       redirect_to new_manager_path
     end
   end
