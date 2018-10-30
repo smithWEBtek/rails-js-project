@@ -19,9 +19,10 @@ class ClientsController < ApplicationController
     if session[:manager_id]
       @client = Client.new(client_params)
       if @client.save
+          binding.pry
           redirect_to client_path(@client)
       else
-          flash[:message] = "Client name needs to be unique and present."
+          flash[:message] = "Client name needs to be unique and created with a project."
           redirect_to new_client_path
       end
     else

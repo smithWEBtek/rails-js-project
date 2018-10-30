@@ -10,7 +10,7 @@ class Manager < ActiveRecord::Base
   validates_format_of :email, :with => /@/
 
 
-  def self.find_or_create_by_omniauth(auth_hash)
+  def self.find_or_create_by_omniauth(auth_hash) #add uid 
     self.where(:name =>  auth_hash["info"]["name"]).first_or_create do |manager|
       manager.password = SecureRandom.hex
     end
