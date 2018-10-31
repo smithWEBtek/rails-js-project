@@ -21,6 +21,11 @@
 
  body {
    padding-top: 60px;
+   background-color: white;
+ }
+
+ head {
+   background-color: blue;
  }
 
  section {

@@ -5,7 +5,7 @@
 <h3>Shortcuts:</h3>
   <%= link_to 'Back to Roster', clients_path %><br>
 <% if session[:manager_id] %>
-<%= link_to 'Edit Client', edit_client_path(@client) %>
+<%= link_to 'Edit Client', edit_client_path(@client) %><br>
 <%= link_to 'New Project', new_client_project_path(@client) %>
 <%end%>
 
