@@ -1,4 +1,6 @@
 class ManagersController < ApplicationController
+
+
   def new
     if session[:manager_id]
       redirect_to '/'

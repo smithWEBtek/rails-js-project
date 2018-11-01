@@ -6,13 +6,14 @@ class ApplicationController < ActionController::Base
 
 
   def current_manager
-    if session[:manager_id]
-      @manager = @manager || Manager.find_by_id(session[:manager_id])
-    end
+    #if session[:manager_id]
+      @manager ||= Manager.find_by_id(session[:manager_id])
+    #end
   end
 
   def logged_in?
     current_manager != nil
+    # !!current_manager
   end
 
 end

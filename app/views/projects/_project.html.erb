@@ -1,7 +1,7 @@
 <%= form_for @project do |p| %>
 <%= p.label :name, 'Project Name:' %>
 <%= p.text_field :name %><br>
-<%= p.label :client_id, 'Select Client:'  %>
+<%= p.label :client_id, 'Select Client:'  %><br>
 <%= p.collection_select :client_id, Client.all, :id, :name, include_blank: true %><br>
 <%= p.label :manager_id, 'Select Manager:'  %>
 <%= p.collection_select :manager_id, Manager.all, :id, :name, include_blank: true %><br>
