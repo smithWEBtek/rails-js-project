@@ -6,6 +6,9 @@ class ProjectsController < ApplicationController
   def new
     if session[:manager_id]
       @project = Project.new
+      if params[:client_id]
+        @client = Client.find(params[:client_id])
+      end
     else
       redirect_to '/'
     end
