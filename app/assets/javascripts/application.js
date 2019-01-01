@@ -14,4 +14,4 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= project
+//= require project
