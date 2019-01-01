@@ -23,6 +23,10 @@ class ManagersController < ApplicationController
   def show
     if session[:manager_id]
       @manager = Manager.find(params[:id])
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @manger }
+      end
     else
       redirect_to '/'
     end
