@@ -10,4 +10,5 @@
   <% if session[:manager_id] %>
   <%= link_to 'Edit Project', edit_project_path(@project) %><br>
   <%= link_to "Your Profile", manager_path(@project.manager) %>
+  <% add next button for project request 2%>
   <%end%>

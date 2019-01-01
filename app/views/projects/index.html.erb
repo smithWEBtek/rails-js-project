@@ -1,6 +1,9 @@
 <h1>Completed Project</h1>
   <ul>
       <%@completed_projects.each do |project| %>
-        <li><%= project.name %></li>
+        <li><%project.id%> <%= project.name %></li>
+          <div id="Info">
+            Give extra details when clicked project req
+          </div>
       <%end%>
   </ul>
