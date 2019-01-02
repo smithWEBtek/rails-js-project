@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
 
-  resources :managers
+  resources :managers do
+    resources :clients
+  end
 
   resources :clients do
     resources :projects

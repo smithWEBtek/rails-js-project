@@ -9,6 +9,19 @@
 
   <% if session[:manager_id] %>
   <%= link_to 'Edit Project', edit_project_path(@project) %><br>
-  <%= link_to "Your Profile", manager_path(@project.manager) %>
-  <% add next button for project request 2%>
+  <%= link_to "Your Profile", manager_path(@project.manager) %><br>
+  <button id="Next">Next Project</button>
   <%end%>
+  <script>
+
+  $(document).ready(function(){
+    $("#Next").on("click", function(){
+      var current_path = window.location.pathname;
+      var client_id = current_path.split("/")[2];
+      $.get("/clients/" + client_id + "/projects" ).done (function(projects) {
+      debugger
+      alert("The paragraph was clicked.");
+      });
+    });
+  });
+  </script>

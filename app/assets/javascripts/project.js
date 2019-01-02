@@ -3,15 +3,16 @@
 //
 
 //function showClients() {
-      $("#DisplayClients").on("click",function() {
-        alert("YO!");
-
+//
+  //    $("button").on("click", function(){
+//        alert("The paragraph was clicked.");
+  //    });
   //      $.get(`/managers`).done (function(state){
     //      $('#clients').appendeach(function(i, element){
       //       element.innerHTML = state.data.attributes.state[i];
         //   })
       //   })
-    });
+  //  });
  //}
 //   // @manager.clients.
 
