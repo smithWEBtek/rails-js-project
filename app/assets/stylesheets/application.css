@@ -18,25 +18,3 @@
  @import "bootstrap";
 
  /* universal */
-* {
-  background-color: white;
-}
-
- body {
-   padding-top: 60px;
- }
-
- section {
-   overflow: auto;
- }
-
- textarea {
-   resize: vertical;
- }
-
- .center {
-   text-align: center;
-   h1 {
-     margin-bottom: 10px;
-   }
- }
