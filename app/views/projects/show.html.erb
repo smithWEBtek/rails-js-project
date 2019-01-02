@@ -5,11 +5,11 @@
   Manager Name: <%= @project.manager.name %><br>
   Completed? <%= @project.completed %><br><br>
 
-  <%= link_to "See #{@project.client.name}'s Project List", client_path(@project.client) %><br>
+  <%= button_to "See #{@project.client.name}'s Project List", client_path(@project.client), :method => :get %><br>
 
   <% if session[:manager_id] %>
-  <%= link_to 'Edit Project', edit_project_path(@project) %><br>
-  <%= link_to "Your Profile", manager_path(@project.manager) %><br>
+  <%= button_to 'Edit Project', edit_project_path(@project), :method => :get %><br>
+  <%= button_to "Your Profile", manager_path(@project.manager), :method => :get %><br>
   <button id="Next">Next Project</button>
   <%end%>
   <script>
