@@ -46,9 +46,10 @@ function getClients(){
     url: current_path +'/clients',
     method: 'get',
     success: function(response) {
+      debugger
       console.log("the resonse:",response);
-        var clients = response.innerHTML
-      $('#clients').append(clients);
+      //  var clients = response.innerHTML;
+      $('#clients').append(response);
     }
   })
 }
