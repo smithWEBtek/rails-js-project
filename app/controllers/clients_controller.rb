@@ -30,7 +30,11 @@ class ClientsController < ApplicationController
   end
 
   def show
-      @client = Client.find(params[:id])
+			@client = Client.find(params[:id])
+			respond_to do |f|
+				f.html {render :show}
+				f.json {render json: @client}
+			end
   end
 
   def edit

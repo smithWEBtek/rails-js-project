@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   def index
-    @completed_projects = Project.completed
+		@completed_projects = Project.completed
+		respond_to do |f|
+			f.html {render :index}
+			f.json {render json: @completed_projects}
+		end
   end
 
   def new
@@ -29,7 +33,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-      @project = Project.find(params[:id])
+			@project = Project.find(params[:id])
+			respond_to do |f|
+				f.html {render :show}
+				f.json {render json: @project}
+			end
   end
 
   def edit
