@@ -18,15 +18,3 @@
     <li><link_to client.name, client_path(client) </li>
        end
     </ul> -->
-    <script>
-    $(document).ready(function(){
-      $("#DisplayClients").on("click", function(){
-        var current_path = window.location.pathname;
-
-        $.get(current_path +`/clients`).done (function(clients) {
-        debugger
-        alert("The paragraph was clicked.");
-        });
-      });
-    });
-    </script>

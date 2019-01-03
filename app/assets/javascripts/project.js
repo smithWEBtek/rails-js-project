@@ -28,3 +28,38 @@
 //      })
 //    })
 //  }
+
+$(function (){
+  listenToForm()
+})
+
+function listenToForm (){
+  $("#DisplayClients").on('click', function(event) {
+    event.preventDefault();
+    getClients();
+  })
+}
+
+function getClients(){
+  var current_path = window.location.pathname;
+  $.ajax({
+    url: current_path +'/clients',
+    method: 'get',
+    success: function(response) {
+      console.log("the resonse:",response);
+        var clients = response.innerHTML
+      $('#clients').append(clients);
+    }
+  })
+}
+
+// $(document).ready(function(){
+//   $("#DisplayClients").on("click", function(){
+//
+//
+//     $.get(current_path +`/clients`).done (function(clients) {
+//     debugger
+//     alert("The paragraph was clicked.");
+//     });
+//   });
+// });
