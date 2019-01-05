@@ -7,7 +7,7 @@
 <%end%>
 
 <h1>Project Details:</h1>
-  Project Name: <%= @project.name %><br>
-  Client Name: <%= @project.client.name %><br>
-  Manager Name: <%= @project.manager.name %><br>
-  Completed? <%= @project.completed %><br><br>
+  Project Name: <div id="project_name"><%= @project.name %></div><br>
+  Client Name: <div id="client_name"><%= @project.client.name %></div><br>
+  Manager Name: <div id="manager_name"><%= @project.manager.name %></div><br>
+  Completed? <div id="completed"><%= @project.completed %><br></div><br>
