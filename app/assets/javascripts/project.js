@@ -22,30 +22,28 @@ function getClients(){
       let myObj = response.clients;
       for (x in myObj) {
         document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
-
         `<button id="clientid-${myObj[x].id}">Display Projects</button><br>` +
-          `<div id="show_projects"></div>`;
-
-      $(`#clientid-${myObj[x].id}`).on('click', () => listenToButton());
+          `<div id="show_projects-${myObj[x].id}"></div>`;
       }
-      console.log("the response:",response);
+      listenToButton(this);
+      //console.log("the response:",response);
     }
   })
 }
 
 function listenToButton (){
-    $("#DisplayClients").on('click', function(event) {
+    $("button").on('click', function(event) {
       event.preventDefault();
-    //  debugger
-      getProjects();
-    })
-  }
+      getProjects(this);
+  })
+}
 
 
-
-function getProjects(clientID){
+function getProjects(data){
 //  console.log("data");
+  let client_id = data.id.split("-")[1]
+  $(`#Show_Clients`).empty();
 debugger
-  $(`#show_projects`).empty();
+  $(`#"show_projects-${client_id}"`).empty();
 
 }
