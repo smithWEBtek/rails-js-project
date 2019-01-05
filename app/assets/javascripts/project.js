@@ -19,29 +19,33 @@ function getClients(){
     method: 'get',
     dataType: 'JSON',
     success: function(response) {
-    //  debugger
       let myObj = response.clients;
       for (x in myObj) {
         document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
-      //  '<a href="#" data-id="' + myObj[x]["id"] +`" onclick="getProjects(this.data)">Display Projects</a>` +
-        `<button id="clientid-${myObj[x].id}">${myObj[x].id}</button><br>` +
-        $(`#gameid-${game.id}`).on('click', () => getProjects(game.id));
-          `<div id="show_projects"></div>`;};
+
+        `<button id="clientid-${myObj[x].id}">Display Projects</button><br>` +
+          `<div id="show_projects"></div>`;
+
+      $(`#clientid-${myObj[x].id}`).on('click', () => listenToButton());
+      }
       console.log("the response:",response);
     }
   })
 }
 
-// function listenToClients (){
-//   $().on('click', function(event) {
-//     event.preventDefault();
-//   //  debugger
-//     getClients();
-//   })
-// }
+function listenToButton (){
+    $("#DisplayClients").on('click', function(event) {
+      event.preventDefault();
+    //  debugger
+      getProjects();
+    })
+  }
 
-function getProjects(){
-  debugger
+
+
+function getProjects(clientID){
+//  console.log("data");
+debugger
   $(`#show_projects`).empty();
 
 }
