@@ -54,22 +54,26 @@ function getClients(){
       let myObj = response.clients;
       for (x in myObj) {
         document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
-          `<button data_id =`+ myObj[x].id +`>Display Projects</button></li><br>
-          <div id="show_projeccts"></div>`;};
+        '<a href="#" data-id="' + myObj[x].id +`" onclick="getProjects(this)">Display Commits</a>` +
+          `<div id="show_projects"></div>`;};
       console.log("the response:",response);
-
-     // var names = response.clients.name.map(
-     //   c =>
-     //    '<li>' + c.name + '</li>'
-     //  );
-     //
-     //  $('#Show_Clients').append(names)
-
-
     }
   })
 }
 
+// function listenToClients (){
+//   $().on('click', function(event) {
+//     event.preventDefault();
+//   //  debugger
+//     getClients();
+//   })
+// }
+
+function getProjects(){
+  debugger
+  $(`#show_projects`).empty();
+
+}
 // $(document).ready(function(){
 //   $("#DisplayClients").on("click", function(){
 //
