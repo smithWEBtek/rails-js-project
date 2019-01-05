@@ -19,6 +19,7 @@ function getClients(){
     method: 'get',
     dataType: 'JSON',
     success: function(response) {
+
       let myObj = response.clients;
       for (x in myObj) {
         document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
@@ -41,9 +42,23 @@ function listenToButton (){
 
 function getProjects(data){
 //  console.log("data");
-  let client_id = data.id.split("-")[1]
-  $(`#Show_Clients`).empty();
-debugger
-  $(`#"show_projects-${client_id}"`).empty();
+  let client-id = data.id.split("-")[1]
+  let project_div = `show_projects-${client_id}`
 
+  $(`#project_div`).empty();
+
+  $.ajax({
+    url: this.href, //data .json if you dont use dataType
+    method: 'get',
+    dataType: 'JSON',
+    success: function(response) {
+      debugger
+      let myObj = response.projects;
+      for (x in myObj) {
+        if (myobj[x].client_id === client-id) {
+          document.getElementById("project_div").innerHTML += '<li>Name: ' + myObj[x].name + '<br>';
+        }
+      }
+    }
+  })
 }
