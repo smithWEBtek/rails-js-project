@@ -6,15 +6,10 @@
 <%= button_to 'Edit Profile', edit_manager_path(@manager), :method => :get %><br>
 <%= button_to 'Create Client', new_client_path, :method => :get %><br>
 <%= button_to 'Create Project', new_project_path, :method => :get %><br>
-<button id="DisplayClients">Display Clients</button> <!-- req 1 -->
-  <div >
-    <ul id="clients">
-    </ul>
-  </div>
+<%= link_to 'Display Clients', manager_clients_path(@manager), :method => :get, id: "DisplayClients" %>
 
-<!-- <h4>Clients:</h4>
-    <ul>
-     @manager.clients.each do |client|
-    <li><link_to client.name, client_path(client) </li>
-       end
-    </ul> -->
+
+
+ <h4>Clients:</h4>
+  <ul id="Show_Clients">
+  </ul>  

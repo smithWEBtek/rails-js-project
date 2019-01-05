@@ -25,7 +25,7 @@ class ManagersController < ApplicationController
       @manager = Manager.find(params[:id])
       respond_to do |format|
         format.html { render :show }
-    #    format.json { render json: @manger }
+        format.json { render json: @manager }
       end
     else
       redirect_to '/'

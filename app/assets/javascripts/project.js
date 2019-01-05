@@ -33,23 +33,39 @@ $(function (){
   listenToForm()
 })
 
+const base_url = 'http://localhost:3000/'
+
 function listenToForm (){
   $("#DisplayClients").on('click', function(event) {
     event.preventDefault();
+  //  debugger
     getClients();
   })
 }
 
 function getClients(){
-  var current_path = window.location.pathname;
+  $(`#Show_Clients`).empty();
   $.ajax({
-    url: current_path +'/clients',
+    url: this.href, //data .json if you dont use dataType
     method: 'get',
+    dataType: 'JSON',
     success: function(response) {
-      debugger
-      console.log("the resonse:",response);
-      //  var clients = response.innerHTML;
-      $('#clients').append(response);
+    //  debugger
+      let myObj = response.clients;
+      for (x in myObj) {
+        document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
+          `<button data_id =`+ myObj[x].id +`>Display Projects</button></li><br>
+          <div id="show_projeccts"></div>`;};
+      console.log("the response:",response);
+
+     // var names = response.clients.name.map(
+     //   c =>
+     //    '<li>' + c.name + '</li>'
+     //  );
+     //
+     //  $('#Show_Clients').append(names)
+
+
     }
   })
 }

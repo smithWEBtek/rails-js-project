@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require bootstrap
-//= require turbolinks
-//= require_tree .
 //= require project
+//= require_tree .
