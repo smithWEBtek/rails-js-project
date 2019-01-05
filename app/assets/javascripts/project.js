@@ -23,7 +23,9 @@ function getClients(){
       let myObj = response.clients;
       for (x in myObj) {
         document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
-        '<a href="#" data-id="' + myObj[x].id +`" onclick="getProjects(data-id)">Display Projects</a>` +
+      //  '<a href="#" data-id="' + myObj[x]["id"] +`" onclick="getProjects(this.data)">Display Projects</a>` +
+        `<button id="clientid-${myObj[x].id}">${myObj[x].id}</button><br>` +
+        $(`#gameid-${game.id}`).on('click', () => getProjects(game.id));
           `<div id="show_projects"></div>`;};
       console.log("the response:",response);
     }
