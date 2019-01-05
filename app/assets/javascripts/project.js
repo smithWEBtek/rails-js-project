@@ -44,7 +44,7 @@ function getProjects(data){
 //  console.log("data");
   let client = Number(data.id.split("-")[1]);
   let project_ul = `show_projects-${client}`;
-
+  let project_show_url = base_url + 'clients/' + client + '/projects/'
   $(`#project_ul`).empty();
 
   $.ajax({
@@ -57,8 +57,7 @@ function getProjects(data){
 
       for (x in myObj) {
         if (myObj[x].client_id === client) {
-          //debugger
-          document.getElementById(`show_projects-${client}`).innerHTML += '<li>Project Name: <a href></a>' + myObj[x].name + '</li>';
+          document.getElementById(`show_projects-${client}`).innerHTML += `<li>Project Name: <a href=`+ project_show_url + myObj[x].id +`>` + myObj[x].name + '</a></li>';
         }
       }
     }
