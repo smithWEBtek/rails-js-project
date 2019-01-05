@@ -11,18 +11,3 @@
   Client Name: <%= @project.client.name %><br>
   Manager Name: <%= @project.manager.name %><br>
   Completed? <%= @project.completed %><br><br>
-
-
-
-  <script>
-  $(document).ready(function(){
-    $("#Next").on("click", function(){
-      var current_path = window.location.pathname;
-      var client_id = current_path.split("/")[2];
-      $.get("/clients/" + client_id + "/projects",).done (function(data) {
-      debugger
-      alert("The paragraph was clicked.");
-      });
-    });
-  });
-  </script>

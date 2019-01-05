@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require bootstrap
-//= require project
+//= require manager
+//= require client
 //= require_tree .
