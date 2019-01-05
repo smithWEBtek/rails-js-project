@@ -24,7 +24,7 @@ function getClients(){
       for (x in myObj) {
         document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
         `<button id="clientid-${myObj[x].id}">Display Projects</button><br>` +
-          `<div id="show_projects-${myObj[x].id}"></div>`;
+          `<ul id="show_projects-${myObj[x].id}"></ul>`;
       }
       listenToButton(this);
       //console.log("the response:",response);
@@ -42,21 +42,23 @@ function listenToButton (){
 
 function getProjects(data){
 //  console.log("data");
-  let client-id = data.id.split("-")[1]
-  let project_div = `show_projects-${client_id}`
+  let client = Number(data.id.split("-")[1]);
+  let project_ul = `show_projects-${client}`;
 
-  $(`#project_div`).empty();
+  $(`#project_ul`).empty();
 
   $.ajax({
     url: this.href, //data .json if you dont use dataType
     method: 'get',
     dataType: 'JSON',
     success: function(response) {
-      debugger
+
       let myObj = response.projects;
+
       for (x in myObj) {
-        if (myobj[x].client_id === client-id) {
-          document.getElementById("project_div").innerHTML += '<li>Name: ' + myObj[x].name + '<br>';
+        if (myObj[x].client_id === client) {
+          //debugger
+          document.getElementById(`show_projects-${client}`).innerHTML += '<li>Project Name: <a href></a>' + myObj[x].name + '</li>';
         }
       }
     }
