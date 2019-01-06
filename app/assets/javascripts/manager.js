@@ -22,7 +22,7 @@ function getClients(){
 
       let myObj = response.clients;
       for (x in myObj) {
-        document.getElementById("Show_Clients").innerHTML += '<li>Name: ' + myObj[x].name + '<br>' +
+        document.getElementById("Show_Clients").innerHTML += `<li>Project Name: <a href=`+ base_url + 'clients/' + myObj[x].id +`>` + myObj[x].name + '</a></li>' +
         `<button id="clientid-${myObj[x].id}">Display Projects</button><br>` +
           `<ul id="show_projects-${myObj[x].id}"></ul>`;
       }
