@@ -3,8 +3,8 @@
   <% if session[:manager_id] %>
   <%= button_to 'Edit Project', edit_project_path(@project), :method => :get %>
   <%= button_to "Your Profile", manager_path(@project.manager), :method => :get %>
-  <button id="Next">Next Project</button>
   <%end%>
+  <button id="Next">See Next Page</button>
 
   <h1>Project Details:</h1>
     Project Name: <div id="project_name"><%= @project.name %></div><br>

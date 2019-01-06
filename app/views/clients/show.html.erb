@@ -1,4 +1,5 @@
-<h1>Client Details Below</h1>
+<body id="Client_Show">
+  <h1>Client Details Below</h1>
 
 <h2>Client Name: <%= @client.name %></h2>
 
@@ -6,19 +7,24 @@
   <%= link_to 'Back to Roster', clients_path %><br>
 <% if session[:manager_id] %>
 <%= link_to 'Edit Client', edit_client_path(@client) %><br>
-<%= link_to 'New Project', new_client_project_path(@client) %>
 <%end%>
 
-  <h4>Completed Projects:</h4>
-    <ul>
-
-      <% @client.completed_projects.each do |project| %>
-        <li> <%= link_to project.name, client_project_path(@client, project) %> </li>
-      <% end %>
-    </ul>
-    <h4>Uncompleted Projects:</h4>
+<button id="Create_Project">Create New Project</button>
+  <div>
+    <h4>Completed Projects:</h4>
       <ul>
-        <% @client.uncompleted_projects.each do |project| %>
+
+        <% @client.completed_projects.each do |project| %>
           <li> <%= link_to project.name, client_project_path(@client, project) %> </li>
         <% end %>
       </ul>
+      <h4>Uncompleted Projects:</h4>
+        <ul>
+          <% @client.uncompleted_projects.each do |project| %>
+            <li> <%= link_to project.name, client_project_path(@client, project) %> </li>
+          <% end %>
+        </ul>
+    </div>
+    <div id="Project_Area">
+    </div>
+</body>
