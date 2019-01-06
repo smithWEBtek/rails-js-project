@@ -1,6 +1,8 @@
 $(function (){
+   if($('body').is("#Project_Show")){
    console.log("only runs on the contact page!");
    listenToProjectPage();
+  }
  })
 
 

@@ -1,13 +1,14 @@
+<body id="Project_Show">
+  <%= button_to "See #{@project.client.name}'s Project List", client_path(@project.client), :method => :get %>
+  <% if session[:manager_id] %>
+  <%= button_to 'Edit Project', edit_project_path(@project), :method => :get %>
+  <%= button_to "Your Profile", manager_path(@project.manager), :method => :get %>
+  <button id="Next">Next Project</button>
+  <%end%>
 
-<%= button_to "See #{@project.client.name}'s Project List", client_path(@project.client), :method => :get %>
-<% if session[:manager_id] %>
-<%= button_to 'Edit Project', edit_project_path(@project), :method => :get %>
-<%= button_to "Your Profile", manager_path(@project.manager), :method => :get %>
-<button id="Next">Next Project</button>
-<%end%>
-
-<h1>Project Details:</h1>
-  Project Name: <div id="project_name"><%= @project.name %></div><br>
-  Client Name: <div id="client_name"><%= @project.client.name %></div><br>
-  Manager Name: <div id="manager_name"><%= @project.manager.name %></div><br>
-  Completed? <div id="completed"><%= @project.completed %><br></div><br>
+  <h1>Project Details:</h1>
+    Project Name: <div id="project_name"><%= @project.name %></div><br>
+    Client Name: <div id="client_name"><%= @project.client.name %></div><br>
+    Manager Name: <div id="manager_name"><%= @project.manager.name %></div><br>
+    Completed? <div id="completed"><%= @project.completed %><br></div><br>
+</body>
