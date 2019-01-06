@@ -57,7 +57,7 @@ function getProjects(data){
 
       for (x in myObj) {
         if (myObj[x].client_id === client) {
-      //    debugger
+          //debugger
           document.getElementById(`show_projects-${client}`).innerHTML += `<li>Project Name: <a href=`+ project_show_url + myObj[x].id +`>` + myObj[x].name + '</a></li>';
         }
       }
