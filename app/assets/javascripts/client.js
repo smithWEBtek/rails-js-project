@@ -1,12 +1,12 @@
 $(function (){
    if($('body').is("#Client_Show")){
-   listenToProjectPage();
+   listenToClientPage();
   }
  })
 
 
- function listenToProjectPage(){
-   $("#Create_Project").on('click', function(event) {
+ function listenToClientPage(){
+   $("#Edit_Client").on('click', function(event) {
      event.preventDefault();
   //   console.log("hello!")
      getForm();
@@ -14,6 +14,5 @@ $(function (){
 }
 
 function getForm(){
-  document.getElementById("Project_Area").innerHTML = '<textarea></textarea>';
-
+  document.getElementById("client_name").innerHTML = '<textarea></textarea>';
 }
