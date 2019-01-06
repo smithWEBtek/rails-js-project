@@ -1,12 +1,14 @@
 <body id="Client_Show">
   <h1>Client Details Below</h1>
 
-<h2>Client Name: <%= @client.name %></h2>
+<h2>Client Name:<div id="client_name" class="no-style"><%= @client.name %></div></h2>
 
 <h3>Shortcuts:</h3>
-  <%= link_to 'Back to Roster', clients_path %><br>
+<%= link_to 'Back to Roster', clients_path %><br>
 <% if session[:manager_id] %>
-<%= link_to 'Edit Client', edit_client_path(@client) %><br>
+<button id="Edit">Edit Client</button><br>
+<%= link_to 'Create Project', new_client_path(@client) , :class => "button" %><br>
+<%= link_to 'New Project', new_client_project_path(@client) %><br>
 <%end%>
 
 <button id="Create_Project">Create New Project</button>
@@ -25,6 +27,5 @@
           <% end %>
         </ul>
     </div>
-    <div id="Project_Area">
-    </div>
+
 </body>

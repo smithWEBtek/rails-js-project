@@ -40,10 +40,11 @@ function listenToButton (){
 
 
 function getProjects(data){
+
   let client = Number(data.id.split("-")[1]);
   let project_ul = `show_projects-${client}`;
   let project_show_url = base_url + 'clients/' + client + '/projects/'
-  $(`#project_ul`).empty();
+  $(`#show_projects-${client}`).empty();
 
   $.ajax({
     url: this.href, //data .json if you dont use dataType

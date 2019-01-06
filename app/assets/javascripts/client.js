@@ -14,6 +14,6 @@ $(function (){
 }
 
 function getForm(){
-//  document.getElementById("Project_Area").innerHTML += '<form></form>'
-   $("#Project_Area").html("<%= escape_javascript(render partial: 'project', locals: { project: @project } ) %>");
+  document.getElementById("Project_Area").innerHTML = '<textarea></textarea>';
+
 }
