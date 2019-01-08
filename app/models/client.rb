@@ -1,6 +1,7 @@
 class Client < ActiveRecord::Base
   has_many :projects
-  belongs_to :manager
+	belongs_to :manager
+	
   validates :name, presence: true, uniqueness: true
   accepts_nested_attributes_for :projects
 

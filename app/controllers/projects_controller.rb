@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @completed_projects = Project.completed
+		@completed_projects = Project.completed
   end
 
   def new
